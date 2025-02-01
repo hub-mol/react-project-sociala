@@ -33,6 +33,33 @@ const feedElements = [
   },
 ];
 
+const pagesList = [
+  {
+    title: "Email Box",
+    to: "/defaultemailbox",
+    icon: "inbox",
+    count: 584,
+  },
+  {
+    title: "Near Hotel",
+    to: "/defaulthotel",
+    icon: "home",
+    count: 0,
+  },
+  {
+    title: "Latest Event",
+    to: "/defaultevent",
+    icon: "map-pin",
+    count: 12,
+  },
+  {
+    title: "Live Stream",
+    to: "/defaultlive",
+    icon: "youtube",
+    count: 0,
+  },
+];
+
 export const Layout = ({ children }) => (
   <Fragment>
     <div className="nav-header bg-white shadow-xs border-0">
@@ -121,43 +148,24 @@ export const Layout = ({ children }) => (
                 <span>More </span>Pages
               </div>
               <ul className="mb-3">
-                <li>
-                  <Link
-                    to="/defaultemailbox"
-                    className="nav-content-bttn open-font"
-                  >
-                    <i className="font-xl text-current feather-inbox me-3"></i>
-                    <span>Email Box</span>
-                    <span className="circle-count bg-warning mt-1">584</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/defaulthotel"
-                    className="nav-content-bttn open-font"
-                  >
-                    <i className="font-xl text-current feather-home me-3"></i>
-                    <span>Near Hotel</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/defaultevent"
-                    className="nav-content-bttn open-font"
-                  >
-                    <i className="font-xl text-current feather-map-pin me-3"></i>
-                    <span>Latest Event</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/defaultlive"
-                    className="nav-content-bttn open-font"
-                  >
-                    <i className="font-xl text-current feather-youtube me-3"></i>
-                    <span>Live Stream</span>
-                  </Link>
-                </li>
+                {pagesList.map((page) => (
+                  <li key={page.to}>
+                    <Link
+                      to="/defaultemailbox"
+                      className="nav-content-bttn open-font"
+                    >
+                      <i
+                        className={`font-xl text-current ${page.icon} me-3`}
+                      ></i>
+                      <span>{page.title}</span>
+                      {page.count !== 0 && (
+                        <span className="circle-count bg-warning mt-1">
+                          {page.count}
+                        </span>
+                      )}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
             {/* More Pages */}
