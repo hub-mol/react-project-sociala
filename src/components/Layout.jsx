@@ -10,6 +10,29 @@ const navLinks = [
   { title: "Shop", to: "/shop2", icon: "feather-shopping-bag" },
 ];
 
+const feedElements = [
+  { title: "Newsfeed", to: "/", icon: "feather-tv", color: "blue" },
+  { title: "Badges", to: "/defaultbadge", icon: "feather-award", color: "red" },
+  {
+    title: "Explore Stories",
+    to: "/defaultstorie",
+    icon: "feather-globe",
+    color: "gold",
+  },
+  {
+    title: "Popular Groups",
+    to: "/defaultgroup",
+    icon: "feather-zap",
+    color: "mini",
+  },
+  {
+    title: "Author Profile",
+    to: "/userpage",
+    icon: "feather-user",
+    color: "primary",
+  },
+];
+
 export const Layout = ({ children }) => (
   <Fragment>
     <div className="nav-header bg-white shadow-xs border-0">
@@ -51,6 +74,7 @@ export const Layout = ({ children }) => (
           />
         </NavLink>
       ))}
+
       {/* /Desktop Menu */}
 
       <Notifications />
@@ -65,6 +89,82 @@ export const Layout = ({ children }) => (
       <Link to="defaultsettings" className="p-0 ms-3 menu-icon">
         <img src="assets/images/user.png" alt="user" className="w40 mt--1" />
       </Link>
+
+      {/* Side Navigation */}
+      <nav className={`navigation scroll-bar`}>
+        <div className="container ps-0 pe-0">
+          <div className="nav-content">
+            <div className="nav-wrap bg-white bg-transparent-card rounded-xxl shadow-xss pt-3 pb-1 mb-2 mt-2">
+              <div className="nav-caption fw-600 font-xssss text-grey-500">
+                <span>New </span>Feeds
+                <ul className="mb-1 top-content">
+                  {feedElements.map((feedElement) => (
+                    <li key={feedElement.to}>
+                      <Link
+                        to={feedElement.to}
+                        className="nav-content-bttn open-font"
+                      >
+                        <i
+                          className={`${feedElement.icon} btn-round-md bg-${feedElement.color}-gradiant me-3`}
+                        />
+                        <span>{feedElement.title}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* More Pages */}
+            <div className="nav-wrap bg-white bg-transparent-card rounded-xxl shadow-xss pt-3 pb-1 mb-2">
+              <div className="nav-caption fw-600 font-xssss text-grey-500">
+                <span>More </span>Pages
+              </div>
+              <ul className="mb-3">
+                <li>
+                  <Link
+                    to="/defaultemailbox"
+                    className="nav-content-bttn open-font"
+                  >
+                    <i className="font-xl text-current feather-inbox me-3"></i>
+                    <span>Email Box</span>
+                    <span className="circle-count bg-warning mt-1">584</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/defaulthotel"
+                    className="nav-content-bttn open-font"
+                  >
+                    <i className="font-xl text-current feather-home me-3"></i>
+                    <span>Near Hotel</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/defaultevent"
+                    className="nav-content-bttn open-font"
+                  >
+                    <i className="font-xl text-current feather-map-pin me-3"></i>
+                    <span>Latest Event</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/defaultlive"
+                    className="nav-content-bttn open-font"
+                  >
+                    <i className="font-xl text-current feather-youtube me-3"></i>
+                    <span>Live Stream</span>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            {/* More Pages */}
+          </div>
+        </div>
+      </nav>
+      {/* /Side Navigation */}
     </div>
     {children}
   </Fragment>
