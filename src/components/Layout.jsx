@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { Notifications } from "./Notifications";
 
 const navLinks = [
   { title: "Home", to: "/", icon: "feather-home" },
@@ -51,6 +52,8 @@ export const Layout = ({ children }) => (
         </NavLink>
       ))}
       {/* /Desktop Menu */}
+
+      <Notifications />
 
       <Link
         to="/defaultmessage"
