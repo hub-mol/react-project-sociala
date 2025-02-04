@@ -21,7 +21,6 @@ export const Notifications = () => {
     <>
       <span
         className={`p-2 cursor-pointer text-center ms-auto menu-icon ${notiClass}`}
-        style={{ "margin-inline-start": "auto" }}
         id="dropdownMenu3"
         data-bs-toggle="dropdown"
         aria-expanded="false"
