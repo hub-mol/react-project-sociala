@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Notifications } from "./Notifications";
+import { Notifications } from "./Notifications/Notifications";
+import PropTypes from "prop-types";
 
 const navLinks = [
   { title: "Home", to: "/", icon: "feather-home" },
@@ -177,3 +178,7 @@ export const Layout = ({ children }) => (
     {children}
   </Fragment>
 );
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
+};
