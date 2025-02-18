@@ -1,14 +1,17 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Home } from "./pages/Home";
+import { useState } from "react";
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </BrowserRouter>
-  );
+    const [shoppingCart, setShoppingCart] = useState({ itmes: [] });
+
+    return (
+        <div>
+            <Header
+                // { items: [] }
+                cart={shoppingCart}
+            />
+            <Shop onAddItemToCart={() => setShoppingCart} />
+        </div>
+    );
 }
 
 export default App;
